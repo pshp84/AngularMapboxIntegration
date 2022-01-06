@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~maplibre-gl/dist/maplibre-gl.css';
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

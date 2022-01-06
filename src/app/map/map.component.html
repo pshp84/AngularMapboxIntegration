@@ -1,0 +1,35 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" opened="true" mode="side" class="mat-elevation-z8" fixedInViewport="true">
+
+        <div *ngIf="datas">
+            <a style="cursor: pointer;"
+                [ngStyle]="isBackBtn == false ? { 'pointer-events': 'none' } : { 'pointer-events': 'unset' }"
+                (click)="initializeMap()">
+                <h4 style="text-align: left;" class="name">Back to results</h4>
+            </a>
+
+            <mat-divider style="margin-top: -13px"></mat-divider>
+            <h4 class="name">{{datas.agentInfo.firstname}} {{datas.agentInfo.lastname}} | {{datas.agentInfo.company}}
+            </h4>
+
+            <mat-divider></mat-divider>
+
+            <div style="height: calc(100vh - 95px);overflow: auto;">
+                <button *ngFor="let item of datas.records" mat-button class="menu-button"
+                    (click)="setLatLngListing(item.geocode.Longitude,item.geocode.Latitude)">
+                    <div>{{item.name}}</div>
+                    <div style="font-size: 0.800rem;color: dimgray;">{{item.streetAddress}},{{item.city}}</div>
+                </button>
+            </div>
+        </div>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content mat-elevation-z8">
+            <div class="map-wrap">
+                <div class="map" #map></div>
+            </div>
+
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
